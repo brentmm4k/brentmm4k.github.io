@@ -71,6 +71,12 @@ main{
     padding: 0 1rem;
     text-align: center;
 }
+.video-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0; /* Optional: Add some margin for spacing */
+}
 footer{
     background-color: #343a40;
     color: #adb5bd;
