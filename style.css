@@ -1,4 +1,4 @@
-@import url('https://fontmeme.com/super-smash-bros-font/');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Patrick+Hand&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -63,13 +63,36 @@ nav ul li a:hover,
 nav ul li a:focus{
     color: #ffdd57;
     outline: none;
-  }
+}
 main{
-    flex: 1;
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    text-align: center;
+    position: relative; /* Position relative for the main content */
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+    text-align: center; /* Center the text horizontally */
+    font-family: "Jersey 10", sans-serif;
+    font-size: 30px;
+    padding-top: 20px;
+}
+main::before{
+    content: "";
+    position: absolute; /* Absolute position to cover the main content */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://i.pinimg.com/736x/fb/d4/8a/fbd48a2e95d3cb3a4120f1629420c1c1.jpg');
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    opacity: 0.1; /* Set low opacity */
+    z-index: -1; /* Place it behind all other content */
+}
+main > * {
+    position: relative; /* Position relative for child elements */
+    z-index: 1; /* Ensure text is above the background */
+    margin: 0 auto; /* Center the block elements */
+    max-width: 800px; /* Optional: Set a max width for better readability */
+}
+p{
+  text-align: justify;
 }
 .video-container{
   display: flex;
@@ -77,6 +100,85 @@ main{
   align-items: center;
   margin: 20px 0; /* Optional: Add some margin for spacing */
 }
+.image-gallery {
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-gap: 10px; /* Space between images */
+  margin: 20px 0; /* Margin above and below the gallery */
+}
+.image-gallery img {
+  width: 100%; /* Make images responsive */
+  height: 200px; /* Maintain aspect ratio */
+  object-fit: contain;
+  border-radius: 5px; /* Optional: Add rounded corners */
+}
+.slider {
+  position: relative;
+  width: 80%; /* Set slider width to 80% */
+  margin: auto;
+  overflow: hidden;
+}
+
+.slider img {
+  width: 80%; /* Set image width to 80% */
+  display: none;
+  align-items: center;
+  margin: auto; /* Center the image */
+}
+
+img.displaySlide {
+  display: block;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem; /* Adjust font size to fit the new scale */
+  padding: 8px 12px; /* Adjust padding for smaller buttons */
+  background-color: hsla(0, 0%, 0%, 0.5);
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.prev, .next {
+  cursor: pointer; /* Change cursor to pointer */
+  position: absolute;
+  top: 50%; /* Center vertically */
+  width: auto;
+  padding: 16px; /* Adjust padding for smaller buttons */
+  color: white; /* Text color */
+  font-weight: bold;
+  font-size: 20px; /* Adjust font size */
+  transition: 0.6s ease;
+  border-radius: 3px; /* Rounded corners */
+  user-select: none; /* Prevent text selection */
+  transform: translateY(-50%); /* Center the buttons vertically */
+  background-color: black; /* Set button background color to black */
+}
+
+.prev {
+  left: 5%; /* Position to the left */
+}
+
+.next {
+  right: 5%; /* Position to the right */
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(255, 255, 255, 0.8); /* Change background on hover */
+  color: black; /* Change text color on hover */
+}
+
+@keyframes fade {
+  from {opacity: .5}
+  to {opacity: 1}
+}
+
+
 footer{
     background-color: #343a40;
     color: #adb5bd;
