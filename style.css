@@ -1,11 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Hammersmith+One&family=Jersey+10&family=Patrick+Hand&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    font-family: 'Super Smash';
+    src: url('/fonts/super_smash_4_1_by_pokemon_diamond-d7zxu6d.ttf') format('truetype'); /* Adjust the path as necessary */
+    font-weight: normal;
+    font-style: normal;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
-    font-family: Helvetica ;
+    font-family: 'Helvetica' ;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
@@ -36,7 +43,7 @@ header h1{
 header h1{
     font-size: 1.8rem;
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Super Smash', serif; 
     font-size: 50px;
 }
 nav{
@@ -68,8 +75,8 @@ main{
     position: relative; /* Position relative for the main content */
     overflow: hidden; /* Hide overflow to prevent scrollbars */
     text-align: center; /* Center the text horizontally */
-    font-family: "Jersey 10", sans-serif;
-    font-size: 30px;
+    font-family: "Hammersmith One", sans-serif;
+    font-size: 25px;
     padding-top: 20px;
 }
 main::before{
@@ -94,6 +101,30 @@ main > * {
 p{
   text-align: justify;
 }
+.story-container {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center the images */
+  margin: 20px 0; /* Add margin for spacing */
+}
+.story-container img {
+  width: 700px; /* Set a fixed width for images */
+  height: 400px; /* Set a fixed height for images to maintain aspect ratio */
+  object-fit: cover; /* Maintain aspect ratio and cover the area */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  margin: 10px
+}
+.dev-container {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: row;
+  margin: 10px 0; /* Add margin for spacing */
+}
+.dev-container img {
+  width: 25%; /* Set a fixed width for images */
+  height: 10%; /* Set a fixed height for images to maintain aspect ratio */
+  object-fit: cover; /* Maintain aspect ratio and cover the area */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  margin: 10px
+}
 .video-container{
   display: flex;
   justify-content: center;
@@ -112,72 +143,59 @@ p{
   object-fit: contain;
   border-radius: 5px; /* Optional: Add rounded corners */
 }
+.dev-list{
+  text-align: left;
+}
 .slider {
   position: relative;
-  width: 80%; /* Set slider width to 80% */
-  margin: auto;
-  overflow: hidden;
+  width: calc(60% - 20px); /* Set slider width to 60% minus 20px */
+  margin: auto; /* Center the slider */
+  overflow: hidden; /* Hide overflow */
 }
 
+.slides {
+  display: flex; /* Use flexbox for horizontal layout */
+  transition: transform 0.5s ease; /* Smooth transition for sliding */
+}
+.slide {
+  min-width: 100%; /* Each slide takes full width */
+  box-sizing: border-box; /* Include padding and border in width */
+}
 .slider img {
-  width: 80%; /* Set image width to 80% */
-  display: none;
-  align-items: center;
-  margin: auto; /* Center the image */
+  width: calc(80% - 20px); /* Set images to 80% of the slider width minus 20px */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Optional: Add rounded corners */
 }
-
-img.displaySlide {
-  display: block;
-  animation-name: fade;
-  animation-duration: 1.5s;
+.description {
+margin-top: 10px; /* Space between image and description */
+margin-bottom: 10px;
+font-size: 30px; /* Font size for description */
+color: #333; /* Text color */
+text-align: justify;
 }
-
-.slider button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.6rem; /* Adjust font size to fit the new scale */
-  padding: 8px 12px; /* Adjust padding for smaller buttons */
-  background-color: hsla(0, 0%, 0%, 0.5);
-  color: black;
-  border: none;
-  cursor: pointer;
-}
-
 .prev, .next {
   cursor: pointer; /* Change cursor to pointer */
   position: absolute;
   top: 50%; /* Center vertically */
-  width: auto;
-  padding: 16px; /* Adjust padding for smaller buttons */
+  transform: translateY(-50%); /* Adjust for centering */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   color: white; /* Text color */
-  font-weight: bold;
-  font-size: 20px; /* Adjust font size */
-  transition: 0.6s ease;
-  border-radius: 3px; /* Rounded corners */
-  user-select: none; /* Prevent text selection */
-  transform: translateY(-50%); /* Center the buttons vertically */
-  background-color: black; /* Set button background color to black */
+  border: none; /* Remove border */
+  padding: 10px; /* Padding for buttons */
+  z-index: 1; /* Ensure buttons are above the images */
 }
-
 .prev {
-  left: 5%; /* Position to the left */
+  left: 10px; /* Position to the left */
 }
 
 .next {
-  right: 5%; /* Position to the right */
+  right: 10px; /* Position to the right */
 }
 
 .prev:hover, .next:hover {
   background-color: rgba(255, 255, 255, 0.8); /* Change background on hover */
   color: black; /* Change text color on hover */
 }
-
-@keyframes fade {
-  from {opacity: .5}
-  to {opacity: 1}
-}
-
 
 footer{
     background-color: #343a40;
@@ -187,7 +205,7 @@ footer{
     font-size: 0.9rem;
     margin-top: auto;
 }
-/* Mobile responsiveness */
+
 @media (max-width: 600px){
     nav ul {
       flex-direction: column;
