@@ -9,7 +9,7 @@ function playClickSound(event) {
 
   // Reset audio to start and play it
   audio.currentTime = 0; // Reset audio to start
-  audio.play(); // Play the audio
+  audio.play(); // Plays the audio
 
   // Get the target URL for navigation
   const targetUrl = event.target.getAttribute('href');
@@ -25,9 +25,10 @@ document.querySelectorAll('nav ul li a').forEach(link => {
   link.addEventListener('click', playClickSound);
 });
 
- // Step 1: Create an array of image filenames
+ // Creates an array of image filenames
 const fighterImages = [];
 const fighterDescriptions = [
+            // Array of descriptions for each fighter
             "#01 Mario - Mario is a well-rounded fighter with balanced stats and a strong grab game, often utilizing down throw to up tilt chains.",
             "#02 Donkey Kong - Donkey Kong is a heavyweight with powerful smash attacks and a notable cargo throw combo game.",
             "#03 Link - Link boasts a versatile projectile arsenal and a powerful remote bomb, offering strong zoning capabilities.",
@@ -114,51 +115,57 @@ const fighterDescriptions = [
             "#82 Sora - Sora is a lightweight, floaty fighter with versatile magic and a strong aerial game, reflecting his Kingdom Hearts origins.",
 ];
 
+// Populates the fighterImages array with paths to the fighter images
 for (let i = 1; i <= 84; i++) {
-    const formattedNumber = String(i).padStart(2, '0');
-    fighterImages.push(`../images/fighters/${formattedNumber}.png`); // Adjust the path as necessary
+    const formattedNumber = String(i).padStart(2, '0'); // Format numbers as two digits
+    fighterImages.push(`../images/fighters/${formattedNumber}.png`); // Add the image path to the array
 }
 
-        // Step 2: Get the slides container
+// Gets the slides container
 const slidesContainer = document.getElementById('slides-container');
 
-// Step 3: Loop through the array and create image elements with descriptions
+// Loops through the array and creates image elements with the descriptions
 fighterImages.forEach((imageSrc, index) => {
     const slideElement = document.createElement('div');
-    slideElement.classList.add('slide'); // Add class for styling
+    slideElement.classList.add('slide'); // Adds class for styling
             
     const imgElement = document.createElement('img');
-    imgElement.src = imageSrc;
-    imgElement.alt = 'Fighter Image'; // Optional: Add alt text for accessibility
-            
+    imgElement.src = imageSrc; // Sets the image source
+    imgElement.alt = 'Fighter Image'; // Adds text for accessibility
+   
     const descriptionElement = document.createElement('div');
-    descriptionElement.classList.add('description'); // Add class for styling
-    descriptionElement.textContent = fighterDescriptions[index]; // Set the description text
+    // Append the image and description to the slide   
+    descriptionElement.classList.add('description'); // Adds class for styling
+    descriptionElement.textContent = fighterDescriptions[index]; // Sets the description text
             
     slideElement.appendChild(imgElement); // Append the image to the slide
     slideElement.appendChild(descriptionElement); // Append the description to the slide
+    // Append the slide to the slides container
     slidesContainer.appendChild(slideElement); // Append the slide to the slides container
 });
 
-        // Step 4: Slider functionality
-let slideIndex = 0;
+// The Slider functionality
+let slideIndex = 0; // Tracks the current slide index
+// Function to show a specific slide based on the index
 function showSlide(index) {
-    const totalSlides = document.querySelectorAll('.slide').length;
+    const totalSlides = document.querySelectorAll('.slide').length; // Gets the total number of slides
     if (index >= totalSlides) {
-        slideIndex = 0; // Loop back to the first slide
+        slideIndex = 0; // Loops back to the first slide
     } else if (index < 0) {
-        slideIndex = totalSlides - 1; // Go to the last slide
+        slideIndex = totalSlides - 1; // Goes to the last slide
     }
-    const offset = -slideIndex * 100; // Calculate offset for sliding
-    slidesContainer.style.transform = `translateX(${offset}%)`; // Apply the offset
+    const offset = -slideIndex * 100; // Calculates the offset for sliding
+    slidesContainer.style.transform = `translateX(${offset}%)`; // Apply the offset to the slides
 }
+// Function to go to the next slide
 function nextSlide() {
     slideIndex++;
     showSlide(slideIndex);
 }
+// Function to go to the previous slide
 function prevSlide() {
     slideIndex--;
     showSlide(slideIndex);
 }
-                // Show the first slide initially
+// Show the first slide initially
 showSlide(slideIndex);

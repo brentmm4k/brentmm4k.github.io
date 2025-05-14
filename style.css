@@ -1,123 +1,153 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Patrick+Hand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Hammersmith+One&family=Jersey+10&family=Patrick+Hand&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Custom font-face for the 'Super Smash' font */
 @font-face {
     font-family: 'Super Smash';
     src: url('/fonts/super_smash_4_1_by_pokemon_diamond-d7zxu6d.ttf') format('truetype'); /* Adjust the path as necessary */
     font-weight: normal;
     font-style: normal;
 }
-*{
+
+/* Reset margins, paddings, and box-sizing for all elements */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-family: 'Helvetica' ;
-    line-height: 1.6;
+
+/* General body styling */
+body {
+    font-family: 'Helvetica'; /* Default font */
+    line-height: 1.6; /* Improves readability */
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    color: #333;
-    background-color: #f8f9fa;
+    flex-direction: column; /* Ensures the body grows vertically */
+    min-height: 100vh; /* Makes the body fill the viewport height */
+    color: #333; /* Default text color */
+    background-color: #f8f9fa; /* Light background color */
 }
-header{
-    position: relative;
-    color: white;
-    padding: 120px;
-    text-align: center;
-    background: url("images/bg.png") no-repeat center center/cover;
-    overflow: hidden;
+
+/* Header section styling */
+header {
+    position: relative; /* Allows positioning of child elements */
+    color: white; /* Text color */
+    padding: 120px; /* Adds space inside the header */
+    text-align: center; /* Centers the text */
+    background: url("images/bg.png") no-repeat center center/cover; /* Background image with full coverage */
+    overflow: hidden; /* Prevents content overflow */
 }
-header::before{
-    content: "";
-    position: absolute;
+
+/* Dark overlay for the header background */
+header::before {
+    content: ""; /* Creates an empty pseudo-element */
+    position: absolute; /* Covers the entire header */
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Dark overlay for readability */
-    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 0; /* Places it behind the header content */
 }
-header h1{
-    position: relative;
-    font-size: 1.8rem;
-    z-index: 1;
+
+/* Header title styling */
+header h1 {
+    position: relative; /* Ensures it stays above the overlay */
+    font-size: 50px; /* Large font size for the title */
+    text-align: center; /* Centers the title */
+    font-family: 'Super Smash', serif; /* Custom font for the title */
 }
-header h1{
-    font-size: 1.8rem;
-    text-align: center;
-    font-family: 'Super Smash', serif; 
-    font-size: 50px;
+
+/* Navigation bar styling */
+nav {
+    background-color: black; /* Dark background for the nav bar */
+    padding: 10px; /* Adds space inside the nav bar */
 }
-nav{
-    background-color: black;
-    padding: 10px;
+
+/* Navigation list styling */
+nav ul {
+    list-style: none; /* Removes default bullet points */
+    display: flex; /* Horizontal layout for nav items */
+    justify-content: center; /* Centers the nav items */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
-nav ul{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-nav ul li{
-    margin: 0.5rem 1rem;
-  }
-nav ul li a{
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 20px;
-    transition: color 0.3s ease;
-  }
+
+/* Individual navigation item styling */
+nav ul li {
+    margin: 0.5rem 1rem; /* Adds spacing between nav items */
+}
+
+/* Navigation links styling */
+nav ul li a {
+    color: white; /* White text color */
+    text-decoration: none; /* Removes underline */
+    font-weight: 600; /* Bold text */
+    font-size: 20px; /* Slightly larger font size */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Hover and focus effects for navigation links */
 nav ul li a:hover,
-nav ul li a:focus{
-    color: #ffdd57;
-    outline: none;
+nav ul li a:focus {
+    color: #ffdd57; /* Yellow color on hover/focus */
+    outline: none; /* Removes default focus outline */
 }
-main{
-    position: relative; /* Position relative for the main content */
-    overflow: hidden; /* Hide overflow to prevent scrollbars */
-    text-align: center; /* Center the text horizontally */
-    font-family: "Hammersmith One", sans-serif;
-    font-size: 25px;
-    padding-top: 20px;
+
+/* Main content styling */
+main {
+    position: relative; /* Allows positioning of child elements */
+    overflow: hidden; /* Prevents scrollbars for overflowing content */
+    text-align: center; /* Centers the text */
+    font-family: "Hammersmith One", sans-serif; /* Custom font */
+    font-size: 25px; /* Default font size */
+    padding-top: 20px; /* Adds space at the top */
 }
-main::before{
-    content: "";
-    position: absolute; /* Absolute position to cover the main content */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('https://i.pinimg.com/736x/fb/d4/8a/fbd48a2e95d3cb3a4120f1629420c1c1.jpg');
-    background-size: cover; /* Cover the entire area */
-    background-position: center; /* Center the image */
-    opacity: 0.1; /* Set low opacity */
-    z-index: -1; /* Place it behind all other content */
+
+/* Background image for the main section */
+main::before {
+    content: ""; /* Creates an empty pseudo-element */
+    position: absolute; /* Covers the entire main section */
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('https://i.pinimg.com/736x/fb/d4/8a/fbd48a2e95d3cb3a4120f1629420c1c1.jpg'); /* Background image */
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    opacity: 0.1; /* Low opacity for subtle effect */
+    z-index: -1; /* Places it behind the main content */
 }
+
+/* Styling for all direct children of the main section */
 main > * {
-    position: relative; /* Position relative for child elements */
-    z-index: 1; /* Ensure text is above the background */
-    margin: 0 auto; /* Center the block elements */
-    max-width: 800px; /* Optional: Set a max width for better readability */
+    position: relative; /* Ensures content is above the background */
+    z-index: 1; /* Places content above the background */
+    margin: 0 auto; /* Centers block elements */
+    max-width: 800px; /* Limits the width for better readability */
 }
-p{
-  text-align: justify;
+
+/* Paragraph text styling */
+p {
+    text-align: justify; /* Justifies the text for a clean look */
 }
+
+/* Story container styling */
 .story-container {
-  display: flex; /* Use flexbox for layout */
-  justify-content: center; /* Center the images */
-  margin: 20px 0; /* Add margin for spacing */
+    display: flex; /* Flexbox layout for images */
+    justify-content: center; /* Centers the images */
+    margin: 20px 0; /* Adds vertical spacing */
 }
+
+/* Story images styling */
 .story-container img {
-  width: 700px; /* Set a fixed width for images */
-  height: 400px; /* Set a fixed height for images to maintain aspect ratio */
-  object-fit: cover; /* Maintain aspect ratio and cover the area */
-  border-radius: 5px; /* Optional: Add rounded corners */
-  margin: 10px
+    width: 700px; /* Fixed width for images */
+    height: 400px; /* Fixed height for images */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 5px; /* Adds rounded corners */
+    margin: 10px; /* Adds spacing around images */
 }
+
+/* Developer container styling */
 .dev-container {
-  display: flex; /* Use flexbox for layout */
-  flex-direction: row;
-  margin: 10px 0; /* Add margin for spacing */
+    display: flex; /* Flexbox layout for images */
+    flex-direction: row; /* Horizontal layout */
+    margin: 10px 0; /* Adds vertical spacing */
 }
+
+/* Developer images styling */
 .dev-container img {
   width: 25%; /* Set a fixed width for images */
   height: 10%; /* Set a fixed height for images to maintain aspect ratio */
@@ -147,71 +177,88 @@ p{
   text-align: left;
 }
 .slider {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
-  overflow: hidden;
-  padding-bottom: 20px;
+    position: relative; /* Allows positioning of child elements */
+    width: 100%; /* Full width */
+    max-width: 600px; /* Limits the width */
+    margin: auto; /* Centers the slider */
+    overflow: hidden; /* Hides overflowing content */
+    padding-bottom: 20px; /* Adds space below the slider */
 }
+
+/* Slides container styling */
 .slides {
-  display: flex; /* Use flexbox for horizontal layout */
-  transition: ease-in-out 0.5s ease; /* Smooth transition for sliding */
+    display: flex; /* Flexbox layout for slides */
+    transition: ease-in-out 0.5s ease; /* Smooth transition for sliding */
 }
+
+/* Individual slide styling */
 .slide {
-  min-width: 100%; /* Each slide takes full width */
-  box-sizing: border-box; /* Include padding and border in width */
+    min-width: 100%; /* Each slide takes full width */
+    box-sizing: border-box; /* Includes padding and border in width */
 }
+
+/* Slider images styling */
 .slider img {
-  width: 60%; /* Make the image responsive */
-  height: auto;
-  border-radius: 5px; /* Optional: Add rounded corners */
+    width: 60%; /* Makes the image responsive */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 5px; /* Adds rounded corners */
 }
+
+/* Description styling */
 .description {
-  margin-top: 20px; /* Space between the slider and the description */
-  font-size: 18px; /* Adjust font size */
-  color: #333; /* Text color */
-  text-align: center; /* Center the text */
+    margin-top: 20px; /* Adds space between the slider and the description */
+    font-size: 18px; /* Adjusts font size */
+    color: #333; /* Text color */
+    text-align: center; /* Centers the text */
 }
+
+/* Navigation buttons for the slider */
 .prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
+    position: absolute; /* Positions the buttons relative to the slider */
+    top: 50%; /* Centers the buttons vertically */
+    transform: translateY(-50%); /* Adjusts for exact centering */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white; /* Button text color */
+    border: none; /* Removes default border */
+    padding: 10px; /* Adds padding inside the buttons */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    z-index: 10; /* Ensures buttons are above other elements */
 }
+
+/* Left navigation button */
 .prev {
-    left: 10px; /* Move the button further left */
+    left: 10px; /* Positions the button on the left */
 }
+
+/* Right navigation button */
 .next {
-    right: 10px; /* Move the button further right */
+    right: 10px; /* Positions the button on the right */
 }
 
+/* Hover effect for navigation buttons */
 .prev:hover, .next:hover {
-  background-color: rgba(255, 255, 255, 0.8); /* Change background on hover */
-  color: black; /* Change text color on hover */
+    background-color: rgba(255, 255, 255, 0.8); /* Lightens the background on hover */
+    color: black; /* Changes text color on hover */
 }
 
-footer{
-    background-color: #343a40;
-    color: #adb5bd;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-    margin-top: auto;
+/* Footer styling */
+footer {
+    background-color: #343a40; /* Dark background */
+    color: #adb5bd; /* Light text color */
+    text-align: center; /* Centers the text */
+    padding: 1rem; /* Adds padding inside the footer */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    margin-top: auto; /* Pushes the footer to the bottom */
 }
 
-@media (max-width: 600px){
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
     nav ul {
-      flex-direction: column;
-      padding: 0.5rem 0;
+        flex-direction: column; /* Stacks nav items vertically */
+        padding: 0.5rem 0; /* Adds padding inside the nav */
     }
 
     nav ul li {
-      margin: 0.5rem 0;
+        margin: 0.5rem 0; /* Adds spacing between nav items */
     }
 }
